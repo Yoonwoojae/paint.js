@@ -5,6 +5,7 @@ const colors = document.getElementsByClassName("controls__color");
 const range = document.querySelector("#jsRange");
 const mode = document.querySelector("#jsMode");
 const save = document.querySelector("#jsSave");
+const reset = document.querySelector("#jsReset");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 700;
@@ -98,6 +99,10 @@ function handleMouseUp(evnet){
     mouse = false;
 }
 
+function handleReset(event){
+    ctx.clearRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+}
+
 function init(){
 
     if(canvas){
@@ -126,6 +131,10 @@ function init(){
 
     if(save){
         save.addEventListener("click", handleSaveClick);
+    }
+
+    if(reset){
+        reset.addEventListener("click", handleReset);
     }
 
 }
